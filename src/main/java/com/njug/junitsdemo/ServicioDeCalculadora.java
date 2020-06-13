@@ -16,4 +16,10 @@ public class ServicioDeCalculadora {
         return resultado;
     }
 
+    public float multiplicar(final float a, final float b) {
+        float resultado = a * b;
+        historial.add(String.format("Multiplicar: %f x %f = %f", a, b, resultado));
+        return resultado;
+    }
+
 }
