@@ -16,10 +16,5 @@ public class JunitsDemoApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-        final int a = 3;
-        final int b = 4;
-
-        System.out.println(String.format("Resultado: %d", servicioDeCalculadora.sumar(a, b)));
-    }
+    public void run(String... args) throws Exception {}
 }
