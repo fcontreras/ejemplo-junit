@@ -22,4 +22,10 @@ public class ServicioDeCalculadora {
         return resultado;
     }
 
+    public double dividir(final double a, final double b) {
+        double resultado = a / b;
+        historial.add(String.format("dividr: %d / %d = %d", a, b, resultado));
+        return resultado;
+    }
+
 }
