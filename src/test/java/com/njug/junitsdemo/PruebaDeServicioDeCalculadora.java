@@ -82,4 +82,15 @@ public class PruebaDeServicioDeCalculadora {
         assertEquals(14.97F, resultado, 0.1);
         assertTrue(objetoDePrueba.historial.get(objetoDePrueba.historial.size() -1).startsWith("Multiplicar"));
     }
+
+    @Test(expected = ServicioDeCalculadora.DivisionEntreCeroException.class)
+    public void pruebaDeDivisionEntreCero() throws Exception {
+        System.out.println("pruebaDeDivision");
+        //Dado que tenemos dos doubles
+        double a = 3.0;
+        double b = 0.0;
+
+        //Cuando ejecutamos la suma
+        objetoDePrueba.dividir(a, b);
+    }
 }
