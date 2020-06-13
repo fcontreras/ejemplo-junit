@@ -8,9 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JunitsDemoApplication implements CommandLineRunner {
 
-    @Autowired
-    ServicioDeCalculadora servicioDeCalculadora;
-
     public static void main(String[] args) {
         SpringApplication.run(JunitsDemoApplication.class, args);
     }
