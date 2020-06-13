@@ -7,21 +7,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(BlockJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class PruebaDeServicioDeCalculadora {
 
-    ServicioDeCalculadora objetoDePrueba = new ServicioDeCalculadora();
-
-    @Before
-    public void antesDeCadaPrueba() {
-        System.out.println("Antes de cada prueba");
-    }
+    @Autowired
+    ServicioDeCalculadora objetoDePrueba;
 
     @Test
     public void pruebaDeSuma() {
+        System.out.println("pruebaDeSuma");
         //Dado que tenemos dos enteros
         int a = 3;
         int b = 4;
@@ -31,10 +31,5 @@ public class PruebaDeServicioDeCalculadora {
 
         //Verificamos
         assertEquals(7, resultado);
-    }
-
-    @After
-    public void despuesDeLasPruebas() {
-        System.out.println("Despues de cada prueba");
     }
 }
