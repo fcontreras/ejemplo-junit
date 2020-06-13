@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.LinkedList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,7 +21,6 @@ public class PruebaDeServicioDeCalculadora {
     @Before
     public void antesDeCadaPrueba() {
         System.out.println(">> Antes de cada prueba");
-        objetoDePrueba.historial = new LinkedList<String>();
     }
 
     @After
@@ -50,7 +50,7 @@ public class PruebaDeServicioDeCalculadora {
 
         //Verificamos
         assertEquals(7, resultado);
-        assertEquals(1, objetoDePrueba.historial.size());
+        assertTrue(objetoDePrueba.historial.get(objetoDePrueba.historial.size() -1).startsWith("Suma"));
     }
 
     @Test
@@ -65,7 +65,21 @@ public class PruebaDeServicioDeCalculadora {
 
         //Verificamos
         assertEquals(-7, resultado);
-        assertEquals(1, objetoDePrueba.historial.size());
+        assertTrue(objetoDePrueba.historial.get(objetoDePrueba.historial.size() -1).startsWith("Suma"));
+    }
 
+    @Test
+    public void pruebaDeMultiplicacion() {
+        System.out.println("pruebaDeMultiplicacion");
+        //Dado que tenemos dos flotantes
+        float a = 3.0F;
+        float b = 4.99F;
+
+        //Cuando ejecutamos la suma
+        float resultado = objetoDePrueba.multiplicar(a, b);
+
+        //Verificamos
+        assertEquals(14.97F, resultado, 0.1);
+        assertTrue(objetoDePrueba.historial.get(objetoDePrueba.historial.size() -1).startsWith("Multiplicar"));
     }
 }
