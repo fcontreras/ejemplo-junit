@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = { "logging.level.org.springframework=ERROR" })
+@SpringBootTest
 public class PruebaDeServicioDeCalculadora {
 
     @Autowired
